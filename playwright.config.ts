@@ -32,19 +32,19 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    // Use the setup for the Auth Assignment
+    // Setup project
+    // { name: 'setup', testMatch: /.*\.setup\.ts/ },
+
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
-
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        // Use prepared auth state for the Auth assignment.
+        // storageState: 'playwright/.auth/user.json',
+      },
+      // Use the setup for the Auth Assignment
+      // dependencies: ['setup'],
     },
 
     /* Test against mobile viewports. */
