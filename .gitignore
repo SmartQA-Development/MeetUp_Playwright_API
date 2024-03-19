@@ -1,6 +1,9 @@
 # IDE
 .idea
 
+# Auth file
+playwright/.auth
+
 # Logs
 logs
 *.log
