@@ -1,7 +1,28 @@
 import { test, expect, request } from '@playwright/test';
 import exp = require("constants");
 
+
+test.beforeAll(async ({ request }) => {
+    // Send authentication request for user.
+    // await request.post('https://webshop.mobiletestautomation.nl/login', {
+    //     form: {
+    //         'back': 'my-account',
+    //         'email': 'user@smartqameetup.nl',
+    //         'password': '1qazxsw2',
+    //         'submitLogin': '1'
+    //     }
+    // });
+    // await request.storageState({ path: authUserFile });
+});
+
+// test.use({ storageState: 'playwright/.auth/user.json' });
+test.use({ storageState: 'playwright/.auth/admin.json' });
 test('User logs in to the MyAccount page', async ({page }) => {
+    // // Create a new incognito browser context
+    // const context = await browser.newContext({ storageState: 'playwright/.auth/user.json' });
+    // // Create a new page inside context.
+    // const page = await context.newPage();
+
     await page.goto('https://webshop.mobiletestautomation.nl/');
 
     await expect(page).toHaveTitle('SmartQA Test Automation');
