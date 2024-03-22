@@ -60,7 +60,7 @@ test('Get customer number 5', async ({ request }) => {
 });
 
 test('Get customer filter by Name', async ({ request }) => {
-    const customersByNameFilterd = await request.get("https://webshop.mobiletestautomation.nl/api/customers", {
+    const response = await request.get("https://webshop.mobiletestautomation.nl/api/customers", {
         headers:{
             'Authorization': "Basic SzNKOVBQM1daTFdZQlBISko0N1hQSEFZTFo0RjNIV0Q6",
             'Output-Format': 'JSON'
@@ -71,13 +71,15 @@ test('Get customer filter by Name', async ({ request }) => {
         },
     });
 
-    //generic assertion
-    expect(customersByNameFilterd.ok()).toBeTruthy();
 
-    //assertion from the response itself
-    await expect(customersByNameFilterd).toBeOK();
+    expect(response.ok()).toBeTruthy();
 
-    const respBody = await customersByNameFilterd.json()
+    expect(response.status()).toEqual(200)
+
+    expect(response.statusText()).toEqual("OK")
+
+
+    const respBody = await response.json()
     expect(respBody.customers[0].id).toBe(255)
 });
 
@@ -115,18 +117,21 @@ test('Create user HUH', async ({ request }) => {
 
     console.log(await customerCreated.text())
 
+    const xml = `<prestashop xmlns:xlink="http://www.w3.org/1999/xlink"><customer><id></id><id_default_group></id_default_group><id_lang></id_lang><newsletter_date_add></newsletter_date_add><ip_registration_newsletter></ip_registration_newsletter><last_passwd_gen></last_passwd_gen><secure_key></secure_key><deleted></deleted><passwd>1qazxsw2</passwd><lastname>Created</lastname><firstname>API</firstname><email>newNAAUser@smartqameetup.nl</email><id_gender></id_gender><birthday></birthday><newsletter></newsletter><optin></optin><website></website><company></company><siret></siret><ape></ape><outstanding_allow_amount></outstanding_allow_amount><show_public_prices></show_public_prices><id_risk></id_risk><max_payment_days></max_payment_days><active>1</active><note></note> <is_guest></is_guest><id_shop></id_shop><id_shop_group></id_shop_group><date_add></date_add><date_upd></date_upd><reset_password_token></reset_password_token><reset_password_validity></reset_password_validity><associations><groups><group><id>3</id></group></groups></associations></customer></prestashop>`
+
     const customerHopeCreated = await request.post("https://webshop.mobiletestautomation.nl/api/customers", {
         headers:{
             'Authorization': "Basic SzNKOVBQM1daTFdZQlBISko0N1hQSEFZTFo0RjNIV0Q6",
-            'Content-Type' : "application/xml"
+            'Content-Type' : "text/xml"
             // 'Output-Format': 'JSON'
         },
         params:{
             'resource':'customers',
+            'postXml': xml
         },
-        data:{
-            body:customerCreated.text()
-        }
+        // data:{
+        //     body:xml
+        // }
     });
 });
 
