@@ -10,9 +10,5 @@
   "devDependencies": {
     "@playwright/test": "^1.42.1",
     "@types/node": "^20.11.27"
-  },
-  "dependencies": {
-    "xml-js": "^1.6.11",
-    "xmlbuilder2": "^3.1.1"
   }
 }
