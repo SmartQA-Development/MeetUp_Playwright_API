@@ -1,4 +1,5 @@
 import { test, expect, APIRequestContext} from '@playwright/test';
+import {Customer} from "../types";
 
 // Request context is reused by all tests in the file.
 let apiContext: APIRequestContext;
@@ -108,6 +109,6 @@ test('FE and BE - ANSWER - Create a new user & validate creation with a API call
     responseJson.customers[0].id
 
     const newlyCreatedCustomerResponse = await apiContext.get(`customers/${responseJson.customers[0].id}`, {});
-    const newlyCreatedCustomerJson = await newlyCreatedCustomerResponse.json()
+    const newlyCreatedCustomerJson : Customer = await newlyCreatedCustomerResponse.json()
     expect(newlyCreatedCustomerJson.customer.email).toBe(email)
 });
