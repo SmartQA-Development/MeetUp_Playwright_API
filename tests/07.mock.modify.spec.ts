@@ -71,5 +71,5 @@ test('MOCK - MODIFY - ANSWER - Modify driver data response for multiple drivers'
     await page.goto('https://smartqa-development.github.io/mock_api_modify/');
 
     // Assert that the second driver is visible fruit is visible
-    await expect(page.getByText('Albon')).toBeVisible();
+    await expect(page.getByText('Perez')).toBeVisible();
 });
