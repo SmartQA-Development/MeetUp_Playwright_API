@@ -1,4 +1,5 @@
 import {expect, test} from "@playwright/test";
+import {Store} from "../types";
 
 
 test('REST calls - Assignment - 01 - Generic call to the api', async ({ request }) => {
@@ -95,7 +96,7 @@ test('REST calls - ANSWER - 02 - Get store with ID number 1', async ({ request }
     await expect(storeOne).toBeOK();
 
     //Validate the content
-    const respBody = await storeOne.json()
+    const respBody : Store = await storeOne.json()
     expect(respBody.store.address1).toBe("3030 SW 8th St Miami")
 });
 
@@ -114,6 +115,6 @@ test('REST calls - ANSWER - 03 - Get store with ID number 3 and validate the sto
     await expect(storeThree).toBeOK();
 
     //Validate the content
-    const respBody = await storeThree.json()
+    const respBody : Store = await storeThree.json()
     expect(respBody.store.name).toBe("Pembroke Pines")
 });
