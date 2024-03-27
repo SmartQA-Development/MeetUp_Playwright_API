@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "2c7122b9-42f6-450c-aa52-b6fcb7a99cbf",
+		"name": "MeetUp Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31658790"
+	},
+	"item": [
+		{
+			"name": "General Request",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "K3J9PP3WZLWYBPHJJ47XPHAYLZ4F3HWD",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Output-Format",
+						"value": "JSON",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://webshop.mobiletestautomation.nl/api/",
+					"protocol": "https",
+					"host": [
+						"webshop",
+						"mobiletestautomation",
+						"nl"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customers",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "K3J9PP3WZLWYBPHJJ47XPHAYLZ4F3HWD",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Output-Format",
+						"value": "JSON",
+						"type": "text"
+					},
+					{
+						"key": "display",
+						"value": "full",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://webshop.mobiletestautomation.nl/api/customers",
+					"protocol": "https",
+					"host": [
+						"webshop",
+						"mobiletestautomation",
+						"nl"
+					],
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer 5",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "K3J9PP3WZLWYBPHJJ47XPHAYLZ4F3HWD",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Output-Format",
+						"value": "JSON",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://webshop.mobiletestautomation.nl/api/customers/5",
+					"protocol": "https",
+					"host": [
+						"webshop",
+						"mobiletestautomation",
+						"nl"
+					],
+					"path": [
+						"api",
+						"customers",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Store 4",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "K3J9PP3WZLWYBPHJJ47XPHAYLZ4F3HWD",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Output-Format",
+						"value": "JSON",
+						"type": "text"
+					},
+					{
+						"key": "display",
+						"value": "full",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://webshop.mobiletestautomation.nl/api/customers",
+					"protocol": "https",
+					"host": [
+						"webshop",
+						"mobiletestautomation",
+						"nl"
+					],
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer - filtered by email email",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "K3J9PP3WZLWYBPHJJ47XPHAYLZ4F3HWD",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Output-Format",
+						"value": "JSON",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://webshop.mobiletestautomation.nl/api/customers/?filter[email]=[test@test425.com]",
+					"protocol": "https",
+					"host": [
+						"webshop",
+						"mobiletestautomation",
+						"nl"
+					],
+					"path": [
+						"api",
+						"customers",
+						""
+					],
+					"query": [
+						{
+							"key": "filter[lastname]",
+							"value": "[Tester]",
+							"disabled": true
+						},
+						{
+							"key": "filter[firstname]",
+							"value": "[Test]",
+							"disabled": true
+						},
+						{
+							"key": "filter[email]",
+							"value": "[test@test425.com]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Formule 1 - Get Drivers",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Formule 1 - Get Max Verstappen",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Formule 1 - Get Checo Perez",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
